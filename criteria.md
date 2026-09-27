@@ -54,10 +54,10 @@ Given a query that matches no listings, the agent stops before calling
      compares session["selected_item"] against what actually reached
      suggest_outfit is the shape you're after. -->
 
-
+When a search item is found, note the number of fields the search item contains in the dictionaryAny item that is fed into the next tool that does not have the same number noted, the agent should stop and return a note about the state of the computation, noting a specific state failure. If the search item and the item fed into the next tool match, the agent should send a state message. -- 5 out of 5 tries
 
 **Why this target:**
-
+This target is specific because it is important to ensure the right information is being passed to the tool so the pipeline is always being fed the right information. A mistake here could cause the entire workflow to fall apart. 
 
 
 ---
@@ -74,11 +74,11 @@ Given a query that matches no listings, the agent stops before calling
      mentions the price? Two different items producing the same opening
      sentence? A card longer than a caption anyone would post? Any of those can
      be turned into a number. -->
-
+Given the caption from the fit card, the agent should mention the item, price, and platform and be specific about the vibe of the item, without repeating a caption for the same item and especially not for a different item. It should keep the caption short (two-to-four sentences) - 4 out of 5 tries.
 
 
 **Why this target:**
-
+This caption is generated from and outfit suggestion from suggest_outfit and the listing. This means that there are cases where outfits could be repeated and may lead to repeated captions. So it will be accepted sometimes if captions are repeated. But not always. 
 
 
 ---
@@ -91,11 +91,11 @@ Given a query that matches no listings, the agent stops before calling
      wardrobe path, what happens when the model can't be reached, whether the
      search respects a price ceiling — anything, as long as it names a number
      or an observable outcome. -->
-
+Given an empty wardrobe path, the agent should return a message saying that the wardrobe is empty and return general styling advice. -- 5 out 5 tries
 
 
 **Why this target:**
-
+This target is built on in unit 4 and could be an interesting path to build upon in terms of understanding how the agent would provide advice on styling. What factors would it consider, and what would be important to consider for each user that asks for advice?
 
 
 ---
