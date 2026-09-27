@@ -59,24 +59,26 @@
 
 ### `search_listings`
 
-- **What it does:**
-- **Inputs:** <!-- name and type each: `max_price` (float), not "a price" -->
-- **Returns:**
-- **When it has nothing:**
+- **What it does:** search_listings searches listing data for items matching a description; optionally a size and price ceieling. 
+- **Inputs:** `description` (str), `size` (str), `max_price`(float)
+- **Returns:** returns a list of dictionary data for listings
+- **When it has nothing:** returns an empty list when it has nothing
+- If search_listings returns an empty list, put a message in the session and stop. Otherwise, take the first result and go to suggest_outfit.
 
 ### `suggest_outfit`
 
-- **What it does:**
-- **Inputs:**
-- **Returns:**
-- **When it has nothing:**
+- **What it does:** Given an item from the user's wardrobe suggest one or two outfits
+- **Inputs:** `new_item`(dict), `wardrobe`(dict)
+- **Returns:** returns a string with outfit sugegstions
+- **When it has nothing:** returns general styling advicse rather than nothing
+- suggest_outfit checks whether the wardrobe is empty -> if it is, the model is asked for general styling advise. Otherwise format the wardrobe items into the prompt and ask for styling combinations based on pieces already owned
 
 ### `create_fit_card`
 
-- **What it does:**
-- **Inputs:**
-- **Returns:**
-- **When it has nothing:**
+- **What it does:** writes a short caption that resembles a real listing post about the item
+- **Inputs:** `outfit`(str): the outfit suggestion strong from suggest_outfit; `new_item`(dict): the listing dictionary for the item
+- **Returns:** a string -> a two to four sentence caption that reads like a real product description
+- **When it has nothing:** returns a descriptive message
 
 ---
 
