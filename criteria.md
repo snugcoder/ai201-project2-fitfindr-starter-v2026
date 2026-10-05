@@ -54,7 +54,7 @@ Given a query that matches no listings, the agent stops before calling
      compares session["selected_item"] against what actually reached
      suggest_outfit is the shape you're after. -->
 
-When a search item is found, note the number of fields the search item contains in the dictionaryAny item that is fed into the next tool that does not have the same number noted, the agent should stop and return a note about the state of the computation, noting a specific state failure. If the search item and the item fed into the next tool match, the agent should send a state message. -- 5 out of 5 tries
+When a search item is found, note the number of fields the search item contains in the dictionary. Any item that is fed into the next tool that does not have the same number noted, the agent should stop and return a note about the state of the computation, noting a specific state failure. If the search item and the item fed into the next tool match, the agent should send a state message. -- 5 out of 5 tries
 
 **Why this target:**
 This target is specific because it is important to ensure the right information is being passed to the tool so the pipeline is always being fed the right information. A mistake here could cause the entire workflow to fall apart. 
